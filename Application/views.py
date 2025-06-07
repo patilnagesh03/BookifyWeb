@@ -60,20 +60,6 @@ def logout_view(request):
     messages.error(request, 'You have been logged out successfully.')
     return redirect('book-list')  # Redirect to the login page after logout
 
-# This view renders the home page after successful login
-@login_required(login_url='login')
-def HomeView(request):
-    return render(request, 'home.html')
-
-# def SendMailView(request):
-#     subject = 'Test Email'
-#     message = 'This is a test email sent from Django.'
-#     from_email = 'nageshpatil7311@gmail.com'
-#     recipient_list = [request.user.email]  # Add the user's email to the recipient list
-#     fail_silently = False  # Set to True to suppress errors
-#     send_mail(subject, message, from_email, recipient_list, fail_silently=fail_silently)
-#     return HttpResponse("Email sent successfully!")
-
 
 # This view handles password change functionality
 login_required(login_url='login')
