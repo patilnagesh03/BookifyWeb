@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-insecure-key')
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
