@@ -78,7 +78,7 @@
         
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url "home" %}"><input type="submit" value="Login"></a>
+        <a href="{% url "book-list" %}"><input type="submit" value="Login"></a>
         <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
         <p>Forgot your password?<a href="{% url "user-identity" %}">Reset Password?</a></p>
 </body>
