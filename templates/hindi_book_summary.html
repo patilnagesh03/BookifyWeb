@@ -55,7 +55,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ book.hindi_title }}</h5>
         <h6 class="card-subtitle mb-3 text-muted">लेखक: {{ book.hindi_author }}</h6>
-        <h6 class="card-subtitle mb-3 text-muted">{{ book.hindi_description }}</h6>
+        <h6 class="card-subtitle mb-3 text-muted">{{ book.hindi_description|truncatewords:30 }}</h6>
 
         <div id="summary-{{ forloop.counter }}" class="collapse">
           <p class="card-text">{{ book.summary }}</p>
