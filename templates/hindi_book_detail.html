@@ -81,7 +81,7 @@
     <div class="book-title">{{ hindi_book.hindi_title }}</div>
     <div class="book-author">लेखक: {{ hindi_book.hindi_author }}</div>
     <div class="book-description">{{ hindi_book.hindi_description }}</div>
-    <div class="book-summary">{{ hindi_book.hindi_summary }}</div>
+    <div class="book-summary">{{ hindi_book.hindi_summary|linebreaks }}</div>
   </div>
   <a href="{% url "hindi-book-list" %}"><input type="submit" value="Go Back <<<"></a>
 </div>

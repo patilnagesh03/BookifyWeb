@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Book, HindiVersion
 
+
+
 # Register your models here.
 
 @admin.register(Book)

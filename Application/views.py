@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegistrationForm,UserIdentityForm
-from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm,SetPasswordForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
 # from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
@@ -70,7 +70,7 @@ def ChangePasswordView(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your password was successfully updated!' )
-            return redirect('logout')
+            return redirect('book-list')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
@@ -149,3 +149,12 @@ def HindiBookDetailView(request, book_id):
         return redirect('hindi-book-list')  # Redirect to the Hindi book summary page if the book does not exist
     
     return render(request, 'hindi_book_detail.html', {'hindi_book': hindi_book_summary})
+
+# This views handles the search part
+    
+def search_books(request):
+    query = request.GET.get('query')
+    results = []
+    if query:
+        results = Book.objects.filter(title__icontains=query) | Book.objects.filter(author__icontains=query)
+    return render(request, 'search_results.html', {'books': results, 'query': query})

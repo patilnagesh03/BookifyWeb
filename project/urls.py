@@ -30,4 +30,5 @@ urlpatterns = [
     path('book-detail/<int:book_id>/', views.BookDetailView, name='book-summary'),
     path('useridentify/',views.UserIdentityView, name = 'user-identity'),
     path('reset-password/<str:en_uname>/', views.ResetPasswordView, name='reset-password'),
+    path('search/', views.search_books, name='search_books'),
 ]

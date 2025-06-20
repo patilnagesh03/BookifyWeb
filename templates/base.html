@@ -13,6 +13,8 @@
         fill: #fff;
       } 
     }
+
+    
     .footer {
       background-color: #121212;
       color: #dcdcdc;
@@ -63,7 +65,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">📚 Bookify</a>
+    <a class="navbar-brand" href="{% url "book-list" %}">📚 Bookify</a>
+
+  <div class="container d-flex justify-content-center my-3 w-100">
+    <form class="d-flex" action="{% url 'search_books' %}" method="GET" role="search">
+        <input class="form-control me-2 w-100 w-sm-75 w-md-50 w-lg-25" name="query" type="search" placeholder="Search by title/Author.." aria-label="Search"/ required>
+        <a href="{% url "search_books" %}"><button class="btn btn-outline-dark" type="submit">Search</button></a>
+    </form>
+  </div>
       
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

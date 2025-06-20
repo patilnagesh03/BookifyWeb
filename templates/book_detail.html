@@ -82,7 +82,7 @@
     <div class="book-title">{{ book_summary.title }}</div>
     <div class="book-author">by {{ book_summary.author }}</div>
     <div class="book-description">{{ book_summary.description }}</div>
-    <div class="book-summary">{{ book_summary.summary }}</div>
+    <div class="book-summary">{{ book_summary.summary|linebreaks }}</div>
   </div>
   <a href="{% url "book-list" %}"><input type="submit" value="Go Back <<<"></a>
 </div>
