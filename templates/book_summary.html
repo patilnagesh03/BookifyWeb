@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Summaries{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+  .card {
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: .8rem;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  h2 {
+    color: #343a40;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2rem;
+  }
+  .hindi {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  .hindi a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+/* CSS */
+.search-container {
+  background-color:rgb(149, 174, 191); /* darkest color */
+  padding:4px;
+  text-align: center;
+  width:35%;
+  height:80px;
+  margin-left:30%;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+
+</style>
+<!-- HTML -->
+<div class="search-container">
+  {% include "search.html" %}
+</div>
+<hr>
+<h2 class="mb-4">Best-Selling Book Summaries</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for book in book_summary %}
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ book.title }}</h5>
+        <h6 class="card-subtitle mb-3 text-muted">By {{ book.author }}</h6>
+        <h6 class="card-subtitle mb-3 text-muted">{{ book.description }}</h6>
+
+        <div id="summary-{{ forloop.counter }}" class="collapse">
+          <p class="card-text">{{ book.summary }}</p>
+        </div>
+        <a href="{% url "book-summary" book.id %}"><input type="submit" value="Read More.."></a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>No books available yet.</p>
+  {% endfor %}
+</div>
+
+  <div class="hindi">
+    <p>If you want to read all these books in Hindi, then click here... <a href="{% url "hindi-book-list" %}">Hindi Version of books</a></p>
+  </div>
+
+{% endblock %}
+

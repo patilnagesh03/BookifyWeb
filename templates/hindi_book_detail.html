@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary of the {{book_summary.title}} Book</title>
+    <style>
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    }
+
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .book {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .book-title {
+    font-size: 1.6rem;
+    color: #4a148c;
+    margin-bottom: 5px;
+  }
+
+  .book-author {
+    font-size: 1rem;
+    color: #616161;
+    margin-bottom: 15px;
+  }
+
+  .book-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .book-summary {
+    background-color: #f3f0ff;
+    padding: 15px;
+    border-left: 4px solid #7e57c2;
+    border-radius: 6px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  input[type="submit"] {
+    background-color: #4a148c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px;
+    }
+
+    .book-title {
+      font-size: 1.4rem;
+    }
+  }
+</style>    
+</head>
+<body>
+<div class="container">
+  <div class="book">
+    <div class="book-title">{{ hindi_book.hindi_title }}</div>
+    <div class="book-author">लेखक: {{ hindi_book.hindi_author }}</div>
+    <div class="book-description">{{ hindi_book.hindi_description }}</div>
+    <div class="book-summary">{{ hindi_book.hindi_summary|linebreaks }}</div>
+  </div>
+  <a href="{% url "hindi-book-list" %}"><input type="submit" value="Go Back <<<"></a>
+</div>
+
+</body>
+</html>
