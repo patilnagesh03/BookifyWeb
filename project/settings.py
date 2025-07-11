@@ -195,4 +195,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
+# LOGIN_REDIRECT_URL = 'https://bookifyweb-2.onrender.com/accounts/google/login/callback/'
+LOGIN_REDIRECT_URL = '/english_version/'
