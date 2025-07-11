@@ -1,7 +1,6 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% block content %}
+{% load static %}
 <style>
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -38,13 +37,16 @@
   background-color: #0056b3;
   transform: translateY(-2px);
 }
+
+
 </style>
 
 <section class="hero">
   <div class="hero-content">
     <h1>Welcome to <span>Bookify</span></h1>
     <p>Discover, Read & Grow with the best book summaries.</p>
-    <a href="{% url 'book-list' %}" class="hero-button">Explore Library</a>
+    <a href="{% url "book-list" %}" class="hero-button">Explore Library</a>
   </div>
 </section>
-{% endblock %}
+
+{% endblock%}
